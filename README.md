@@ -5,7 +5,7 @@
 
 Start rest app: cd rest-app mvn jetty:run
 
-All URL is used prefix **localhost:8080/rest**
+All URL is used prefix **localhost:8090/rest**
 * /employees
 * /vouchers
 * /cost
@@ -13,8 +13,12 @@ All URL is used prefix **localhost:8080/rest**
 
 Start web app: cd web-app mvn jetty:run
 
-All URL is used prefix **localhost:8090**
+All URL is used prefix **localhost:8080**
 * /voucherList
 * /employeeList
 * /costList
 * see more in the package com.zhenia.project.home.web
+
+You can use tomcat but only **localhost:8090**
+application context **/rest** in rest-app
+and **/** in web-app
