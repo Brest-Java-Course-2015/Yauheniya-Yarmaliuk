@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="classpath*:test-spring-db.xml"/>
+      <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:employee.properties</value>
+                <value>classpath:voucher.properties</value>
+                <value>classpath:cost.properties</value>
+                <value>classpath:voucherdto.properties</value>
+                <value>classpath:database.properties</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="voucherDao" class="com.zhenia.project.home.dao.VoucherDaoImpl">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+    <bean id="VoucherService" class="com.zhenia.project.home.service.VoucherServiceImpl">
+        <property name="voucherDao" ref="voucherDao"/>
+    </bean>
+    <bean id="employeeDao" class="com.zhenia.project.home.dao.EmployeeDaoImpl">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+    <bean id="EmployeeService" class="com.zhenia.project.home.service.EmployeeServiceImpl">
+        <property name="employeeDao" ref="employeeDao"/>
+    </bean>
+    <bean id="costDao" class="com.zhenia.project.home.dao.CostDaoImpl">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+    <bean id="CostService" class="com.zhenia.project.home.service.CostServiceImpl">
+        <property name="costDao" ref="costDao"/>
+    </bean>
+    <bean id="voucherDtoDao" class="com.zhenia.project.home.dao.VoucherDtoImpl">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+    <bean id="VoucherDtoService" class="com.zhenia.project.home.service.VoucherDtoServiceImpl">
+        <property name="voucherDtoDao" ref="voucherDtoDao"/>
+    </bean>
+</beans>

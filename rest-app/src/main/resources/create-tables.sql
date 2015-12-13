@@ -1,0 +1,19 @@
+DROP TABLE VOUCHER IF EXISTS;
+CREATE TABLE VOUCHER (
+  vouchId   INTEGER IDENTITY,
+  country   VARCHAR(128),
+  price     INTEGER,
+  discaunt  INTEGER
+);
+
+DROP TABLE EMPLOYEE IF EXISTS;
+CREATE TABLE EMPLOYEE (
+  emplId     INTEGER IDENTITY,
+  name       VARCHAR(128),
+  surname    VARCHAR(128),
+  idVoucher  INTEGER,
+  vacation   DATE,
+
+  FOREIGN KEY (idVoucher) REFERENCES VOUCHER (vouchId)
+);
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="voucherDao" class="org.easymock.EasyMock" factory-method="createMock">
+        <constructor-arg value="com.zhenia.project.home.dao.VoucherDao"/>
+    </bean>
+    <bean id="voucherService" class="com.zhenia.project.home.service.VoucherServiceImpl">
+        <property name="voucherDao" ref="voucherDao"/>
+    </bean>
+    <bean id="employeeDao" class="org.easymock.EasyMock" factory-method="createMock">
+        <constructor-arg value="com.zhenia.project.home.dao.EmployeeDao"/>
+    </bean>
+    <bean id="employeeService" class="com.zhenia.project.home.service.EmployeeServiceImpl">
+        <property name="employeeDao" ref="employeeDao"/>
+    </bean>
+    <bean id="costDao" class="org.easymock.EasyMock" factory-method="createMock">
+        <constructor-arg value="com.zhenia.project.home.dao.CostDao"/>
+    </bean>
+    <bean id="costService" class="com.zhenia.project.home.service.CostServiceImpl">
+        <property name="costDao" ref="costDao"/>
+    </bean>
+    <bean id="voucherDtoDao" class="org.easymock.EasyMock" factory-method="createMock">
+        <constructor-arg value="com.zhenia.project.home.dao.VoucherDtoDao"/>
+    </bean>
+    <bean id="voucherDtoService" class="com.zhenia.project.home.service.VoucherDtoServiceImpl">
+        <property name="voucherDtoDao" ref="voucherDtoDao"/>
+    </bean>
+</beans>
